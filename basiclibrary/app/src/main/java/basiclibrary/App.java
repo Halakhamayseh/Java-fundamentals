@@ -82,20 +82,24 @@ public class App {
     }
 
     public static int[] ArraysOfArrays(int[][] CalculatingArrayOfArrays) {
-           int []arr=CalculatingArrayOfArrays[0];
-           int []arr2=new int[arr.length];
+          // int []arr=CalculatingArrayOfArrays[0];
+           int []arr2=new int[CalculatingArrayOfArrays.length];
         int indexi=0;
         int indexj=0;
         int indexf=0;
         int indexm=0;
            int total=0;
-        for (int i : arr) {
-           total+=i;
-           int avg=total/(arr.length);
-             arr[indexi]=avg;
-            arr2[indexj++]=arr[indexi];
-            indexi++;
+        for (int b = 0; b < CalculatingArrayOfArrays.length; b++) {
+            arr2[b]=CalculatingAverages(CalculatingArrayOfArrays[b]);
+           // for (int i : arr) {
+               // total+=i;
+                //int avg=total/(arr.length);
+                //arr[indexi]=avg;
+                //arr2[indexj++]=arr[indexi];
+               // indexi++;
+           // }
         }
+
 
         for (int f : arr2) {
             indexf++;
