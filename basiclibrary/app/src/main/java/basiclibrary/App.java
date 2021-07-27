@@ -11,12 +11,24 @@ public class App {
 
 
     public static void main(String[] args) {
-        int[][] weeklyMonthTemperatures = {
+      int[][] weeklyMonthTemperatures = {
                 {66, 64, 58, 65, 71, 57, 60},
                 {57, 65, 65, 70, 72, 65, 51},
                 {55, 54, 60, 53, 59, 57, 61},
-                {65, 56, 55, 52, 55, 62, 57}
-        };
+               {65, 56, 55, 52, 55, 62, 57}
+       };
+
+        //int[] testroll = roll(6); done
+        //System.out.println(Arrays.toString(testroll));
+        int[] containsDuplicatestest1 = {3,4,2,4};
+        int[] containsDuplicatestest2 = {1,2,3,4,5,6,7,8};
+        //containsDuplicatestest1.contains(containsDuplicatestest2));
+        //int[] testCalculatingAverages = CalculatingAverages(containsDuplicatestest1);
+
+        //System.out.println(containsDuplicates(containsDuplicatestest1)); done
+       //System.out.println(CalculatingAverages(containsDuplicatestest1));done
+        int[] testArraysOfArrays = ArraysOfArrays(weeklyMonthTemperatures);
+        System.out.println(Arrays.toString(testArraysOfArrays));
     }
 
     public static int[] roll(int number) {
@@ -32,16 +44,32 @@ public class App {
     }
 
     public static Boolean containsDuplicates(int[] containArray) {
-        int[] NewContainArray = new int[containArray.length + 1];
-        //List<Boolean> NewContainArrays=new ArrayList<Boolean>();
+        //int[] NewContainArray = new int[containArray.length];
+        //System.out.println(Arrays.toString(NewContainArray));
+        //List<Integer> NewContainArrays= new ArrayList<Integer>();
+        //NewContainArrays.contains());
+        int indexi=0;
+        int indexj=0;
         for (int i : containArray) {
-            for (int j : NewContainArray) {
-                if (containArray[i] == containArray[j]) {
-                    return true;
-                }
+            //System.out.println(Arrays.toString(containArray));
+            //System.out.println((containArray[0]));
+            indexi++;
+            for (int j : containArray) {
+              indexj++;
+                //System.out.println((containArray[indexi-1]));
+                //System.out.println((containArray[indexj]));
+                if(i!=j){
+                   //System.out.println(i);
+                    //System.out.println(j);
+                    if (containArray[indexi] == containArray[indexj]){
+                        //System.out.println((containArray[indexi]));
+                        //System.out.println((containArray[indexj]));
 
-            }
-        }return false;
+                        return true;
+                    }
+                }
+           }
+      }return false;
 
     }
     public static int CalculatingAverages(int[] CalculatingArray) {
@@ -50,19 +78,48 @@ public class App {
             total+=i;
 
         }
-return total/(CalculatingArray.length+1);
+           return total/(CalculatingArray.length);
     }
-    //public static int[] weeklyMonthTemperatures(int[][] CalculatingArrayOfArrays) {
-        //int total=0;
-//int []arr=
-        //for (int i : CalculatingArrayOfArrays) {
-           // for (int j : weeklyMonthTemperatures){
-       // total+=j;
-        //return total/(CalculatingArray.length+1);
-           // }
-        //}
 
-    //}
+    public static int[] ArraysOfArrays(int[][] CalculatingArrayOfArrays) {
+           int []arr=CalculatingArrayOfArrays[0];
+           int []arr2=new int[arr.length];
+        int indexi=0;
+        int indexj=0;
+        int indexf=0;
+        int indexm=0;
+           int total=0;
+        for (int i : arr) {
+           total+=i;
+           int avg=total/(arr.length);
+             arr[indexi]=avg;
+            arr2[indexj++]=arr[indexi];
+            indexi++;
+        }
 
-    //}
+        for (int f : arr2) {
+            indexf++;
+                for (int m : arr2) {
+                    indexm++;
+                   if(f!=m){
+
+                       //System.out.println(f);
+                       //System.out.println(arr2[indexf]);
+                      if (f < m){
+                           //System.out.println("t");
+                           f=m;
+                        }else{//System.out.println("ll");
+                      }
+                   }
+
+           }
+
+           }
+int lowestAverage=arr2[0];
+        //System.out.println(lowestAverage);
+        ArrayList<Integer>lowestAverageArray=new ArrayList<Integer>();
+        lowestAverageArray.add(lowestAverage);
+        System.out.println(lowestAverageArray);
+return arr2;
+    }
 }
