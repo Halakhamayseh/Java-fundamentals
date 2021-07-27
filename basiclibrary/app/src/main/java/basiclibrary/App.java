@@ -17,7 +17,20 @@ public class App {
                 {55, 54, 60, 53, 59, 57, 61},
                {65, 56, 55, 52, 55, 62, 57}
        };
-
+      ///////////////////tally funactions///////////////
+      //List<String> votes = new ArrayList<>();
+        //votes.add("Bush");
+        //votes.add("Bush");
+        //votes.add("Bush");
+        //votes.add("Shrub");
+        //votes.add("Hedge");
+        //votes.add("Shrub");
+        //votes.add("Bush");
+        //votes.add("Hedge");
+        //votes.add("Bush");
+        //String winner = tally(votes);
+        //System.out.println(winner + " received the most votes!");
+        ///////////////////////////////////////////////////////////
         //int[] testroll = roll(6); done
         //System.out.println(Arrays.toString(testroll));
         int[] containsDuplicatestest1 = {3,4,2,4};
@@ -27,8 +40,10 @@ public class App {
 
         //System.out.println(containsDuplicates(containsDuplicatestest1)); done
        //System.out.println(CalculatingAverages(containsDuplicatestest1));done
-        int[] testArraysOfArrays = ArraysOfArrays(weeklyMonthTemperatures);
-        System.out.println(Arrays.toString(testArraysOfArrays));
+       // int[] testArraysOfArrays = ArraysOfArrays(weeklyMonthTemperatures);
+        //System.out.println(Arrays.toString(testArraysOfArrays));
+        // String weeklyMonthTemperaturestest = weeklyMonthTemperaturesFuncation(weeklyMonthTemperatures);
+        //System.out.println((weeklyMonthTemperaturestest));done
     }
 
     public static int[] roll(int number) {
@@ -126,4 +141,32 @@ int lowestAverage=arr2[0];
         System.out.println(lowestAverageArray);
 return arr2;
     }
+    public static String weeklyMonthTemperaturesFuncation(int[][] weeklyMonthTemperaturesArrays) {
+        //create array with hashset to add unique values
+        Set<Integer> unique=new HashSet<Integer>();
+        int notSeen=0;
+        // make 2 for loop to access elements and the added to array
+        for (int i = 0; i < weeklyMonthTemperaturesArrays.length; i++) {
+            for (int j = 0; j < weeklyMonthTemperaturesArrays[i].length; j++) {
+                unique.add(weeklyMonthTemperaturesArrays[i][j]);
+            }
+            //find min,max in array using Collections
+           int min=Collections.min(unique);
+            int max=Collections.max(unique);
+            System.out.println("High: " +min);
+            System.out.println("Low: : " +max);
+            //iterate from the min temp to the max temp and create a String containing any temperature
+            for ( notSeen = min; notSeen <max ; notSeen++) {
+            if(!unique.contains(notSeen)){
+                System.out.println("Never saw temperature: "+ notSeen);
+            }
+            }
+        }String result= "Never saw temperature: "+ notSeen;
+
+        return result;
+    }
+    public static void tally(String[]ListString) {
+
+    }
+
 }
