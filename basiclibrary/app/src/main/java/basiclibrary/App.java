@@ -3,6 +3,8 @@
  */
 package basiclibrary;
 
+import com.google.common.primitives.Ints;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -17,6 +19,10 @@ public class App {
                 {55, 54, 60, 53, 59, 57, 61},
                {65, 56, 55, 52, 55, 62, 57}
        };
+       int[][] arraytest2 = {
+                {1, 2, 3},
+                {3, 3, 3}
+      };
       ///////////////////tally funactions///////////////
       //List<String> votes = new ArrayList<>();
         //votes.add("Bush");
@@ -33,17 +39,20 @@ public class App {
         ///////////////////////////////////////////////////////////
         //int[] testroll = roll(6); done
         //System.out.println(Arrays.toString(testroll));
-        int[] containsDuplicatestest1 = {3,4,2,4};
+        int[] containsDuplicatestest1 = {3,4,2};
         int[] containsDuplicatestest2 = {1,2,3,4,5,6,7,8};
         //containsDuplicatestest1.contains(containsDuplicatestest2));
         //int[] testCalculatingAverages = CalculatingAverages(containsDuplicatestest1);
 
         //System.out.println(containsDuplicates(containsDuplicatestest1)); done
-       //System.out.println(CalculatingAverages(containsDuplicatestest1));done
+       //System.out.println(CalculatingAverages(containsDuplicatestest1));
        // int[] testArraysOfArrays = ArraysOfArrays(weeklyMonthTemperatures);
-        //System.out.println(Arrays.toString(testArraysOfArrays));
+        //System.out.println(testArraysOfArrays));
         // String weeklyMonthTemperaturestest = weeklyMonthTemperaturesFuncation(weeklyMonthTemperatures);
         //System.out.println((weeklyMonthTemperaturestest));done
+    //int[] testArraysOfArrays = ArraysOfArrays(arraytest2);
+      // System.out.println(Arrays.toString(testArraysOfArrays)); finally done
+
     }
 
     public static int[] roll(int number) {
@@ -87,59 +96,84 @@ public class App {
       }return false;
 
     }
-    public static int CalculatingAverages(int[] CalculatingArray) {
-  int total=0;
+    public static float CalculatingAverages(int[] CalculatingArray) {
+  int totals=0;
         for (int i : CalculatingArray){
-            total+=i;
+            totals+=i;
 
         }
-           return total/(CalculatingArray.length);
+           return totals/(CalculatingArray.length);
     }
 
-    public static int[] ArraysOfArrays(int[][] CalculatingArrayOfArrays) {
-          // int []arr=CalculatingArrayOfArrays[0];
+    public static int [] ArraysOfArrays(int[][] CalculatingArrayOfArrays) {
+           //int []arr2=CalculatingArrayOfArrays[0];
+        List<Integer> CalculatingArrayOfArray= new ArrayList<Integer>();
            int []arr2=new int[CalculatingArrayOfArrays.length];
-        int indexi=0;
-        int indexj=0;
-        int indexf=0;
-        int indexm=0;
-           int total=0;
-        for (int b = 0; b < CalculatingArrayOfArrays.length; b++) {
-            arr2[b]=CalculatingAverages(CalculatingArrayOfArrays[b]);
-           // for (int i : arr) {
-               // total+=i;
-                //int avg=total/(arr.length);
-                //arr[indexi]=avg;
-                //arr2[indexj++]=arr[indexi];
-               // indexi++;
-           // }
+        int []arrI=new int[CalculatingArrayOfArrays[0].length];
+        //int indexi=0;
+        //int indexj=0;
+        //int indexf=0;
+        //int indexm=0;
+
+        for (int i = 0;i< CalculatingArrayOfArrays.length; i++) {
+            int total=0;
+            int avg=0;
+            int index=0;
+            for (int j = 0; j < CalculatingArrayOfArrays[i].length; j++) {
+
+                total += CalculatingArrayOfArrays[i][j];
+                avg=total/(CalculatingArrayOfArrays[i].length);
+
+                arr2[i]=(avg);
+                index++;
+
+            }
+
+            System.out.println((Arrays.toString(arrI)));
+
+
+        }
+        int indexofmin=0;
+        for (int j= 0; j < arr2.length; j++) {
+            for (int k = 0; k < arr2.length; k++) {
+                if(j!=k){
+                    if (j<k){
+
+                        //System.out.println("arr2[j]"+arr2[j]);
+                        // this way to find indexof after find min 
+                        indexofmin=Ints.indexOf(arr2,arr2[j]);
+                        System.out.println("indexof"+ indexofmin);
+                    }
+                }
+            }
         }
 
 
-        for (int f : arr2) {
-            indexf++;
-                for (int m : arr2) {
-                    indexm++;
-                   if(f!=m){
+        //for (int f : arr2) {
+           // indexf++;
+                //for (int m : arr2) {
+                  //  indexm++;
+                  // if(f!=m){
 
                        //System.out.println(f);
                        //System.out.println(arr2[indexf]);
-                      if (f < m){
+                     // if (f < m){
                            //System.out.println("t");
-                           f=m;
-                        }else{//System.out.println("ll");
-                      }
-                   }
+                          // f=m;
+                       // }else{//System.out.println("ll");
+                     // }
+                  // }
 
-           }
+          // }
 
-           }
-int lowestAverage=arr2[0];
+          // }
+//int lowestAverage=arr2[0];
         //System.out.println(lowestAverage);
-        ArrayList<Integer>lowestAverageArray=new ArrayList<Integer>();
-        lowestAverageArray.add(lowestAverage);
-        System.out.println(lowestAverageArray);
-return arr2;
+        //ArrayList<Integer>lowestAverageArray=new ArrayList<Integer>();
+        //lowestAverageArray.add(lowestAverage);
+        //System.out.println(lowestAverageArray);
+        System.out.println(Arrays.toString(CalculatingArrayOfArrays[indexofmin]));
+return CalculatingArrayOfArrays[indexofmin];
     }
     public static String weeklyMonthTemperaturesFuncation(int[][] weeklyMonthTemperaturesArrays) {
         //create array with hashset to add unique values
@@ -165,8 +199,9 @@ return arr2;
 
         return result;
     }
-    public static void tally(String[]ListString) {
 
-    }
+    //public static void tally(String[]ListString) {
+
+   // }
 
 }
