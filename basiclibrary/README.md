@@ -8,5 +8,5 @@
    array contains duplicate values.
 3. `int CalculateAverage(int[] arr)`: takes in an array and returns the average of all the values in the array.
 4. `Given an array of arrays calculate the average value for each array and return the array with the lowest average.`
-
+### Amount of time you spent on this assignment : tow days 
 

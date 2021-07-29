@@ -3,6 +3,8 @@
  */
 package basiclibrary;
 
+import com.google.common.primitives.Ints;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.*;
@@ -37,19 +39,19 @@ public class App {
         ///////////////////////////////////////////////////////////
         //int[] testroll = roll(6); done
         //System.out.println(Arrays.toString(testroll));
-        int[] containsDuplicatestest1 = {3,4,2,4};
+        int[] containsDuplicatestest1 = {3,4,2};
         int[] containsDuplicatestest2 = {1,2,3,4,5,6,7,8};
         //containsDuplicatestest1.contains(containsDuplicatestest2));
         //int[] testCalculatingAverages = CalculatingAverages(containsDuplicatestest1);
 
         //System.out.println(containsDuplicates(containsDuplicatestest1)); done
-       //System.out.println(CalculatingAverages(containsDuplicatestest1));done
+       //System.out.println(CalculatingAverages(containsDuplicatestest1));
        // int[] testArraysOfArrays = ArraysOfArrays(weeklyMonthTemperatures);
         //System.out.println(testArraysOfArrays));
         // String weeklyMonthTemperaturestest = weeklyMonthTemperaturesFuncation(weeklyMonthTemperatures);
         //System.out.println((weeklyMonthTemperaturestest));done
-        int[] testArraysOfArrays = ArraysOfArrays(arraytest2);
-        System.out.println(Arrays.toString(testArraysOfArrays));
+    //int[] testArraysOfArrays = ArraysOfArrays(arraytest2);
+      // System.out.println(Arrays.toString(testArraysOfArrays)); finally done
 
     }
 
@@ -129,6 +131,21 @@ public class App {
 
             System.out.println((Arrays.toString(arrI)));
 
+
+        }
+        int indexofmin=0;
+        for (int j= 0; j < arr2.length; j++) {
+            for (int k = 0; k < arr2.length; k++) {
+                if(j!=k){
+                    if (j<k){
+
+                        //System.out.println("arr2[j]"+arr2[j]);
+                        // this way to find indexof after find min 
+                        indexofmin=Ints.indexOf(arr2,arr2[j]);
+                        System.out.println("indexof"+ indexofmin);
+                    }
+                }
+            }
         }
 
 
@@ -155,8 +172,8 @@ public class App {
         //ArrayList<Integer>lowestAverageArray=new ArrayList<Integer>();
         //lowestAverageArray.add(lowestAverage);
         //System.out.println(lowestAverageArray);
-
-return arr2;
+        System.out.println(Arrays.toString(CalculatingArrayOfArrays[indexofmin]));
+return CalculatingArrayOfArrays[indexofmin];
     }
     public static String weeklyMonthTemperaturesFuncation(int[][] weeklyMonthTemperaturesArrays) {
         //create array with hashset to add unique values
