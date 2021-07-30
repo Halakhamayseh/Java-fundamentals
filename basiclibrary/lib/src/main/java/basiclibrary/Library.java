@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.*;
 
 public class Library {
-    public class App {
+
 
 
         public static void main(String[] args) {
@@ -51,8 +51,8 @@ public class Library {
             //System.out.println(testArraysOfArrays));
             String weeklyMonthTemperaturestest = weeklyMonthTemperaturesFuncation(weeklyMonthTemperatures);
             System.out.println((weeklyMonthTemperaturestest));//done
-            //int[] testArraysOfArrays = ArraysOfArrays(arraytest2);
-            // System.out.println(Arrays.toString(testArraysOfArrays)); finally done
+           int[] testArraysOfArrays = ArraysOfArrays(weeklyMonthTemperatures);
+            System.out.println(Arrays.toString(testArraysOfArrays)); //finally done
 
         }
 
@@ -213,4 +213,4 @@ public class Library {
         // }
 
     }
-}
+
