@@ -4,11 +4,20 @@
 package linter;
 
 import org.junit.jupiter.api.Test;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
-    @Test void appHasAGreeting() {
-        App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+
+    @Test
+    public void  testLinterFunction(){
+      Path newpathtest = Paths.get("app/src/main/resources/gates.js");
+       // Path newpathtest = Paths.get("testGates.js");
+        String result ="line"+" "+(3)+" you are missing semicolon";
+        assertEquals(result,App.ReadFileScanerLinter(newpathtest));
     }
+
 }
