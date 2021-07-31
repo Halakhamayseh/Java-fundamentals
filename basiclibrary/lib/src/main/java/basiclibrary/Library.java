@@ -208,9 +208,10 @@ public class Library {
             return result;
         }
 
-        //public static void tally(String[]ListString) {
+        public static void tally(String[]ListString) {
 
-        // }
+
+         }
 
     }
 

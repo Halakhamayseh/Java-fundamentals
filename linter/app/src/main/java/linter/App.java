@@ -3,18 +3,52 @@
  */
 package linter;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
+import java.util.Scanner;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+    public static String getGreeting() {
+        return "Hello World";
     }
 
     public static void main(String[] args) {
-       // System.out.println(new App().getGreeting());
-       // Path newpath= Paths.get("gates.js");try {
-        //}
+        System.out.println(new App().getGreeting());
+      Path newpath = Paths.get("app/src/main/resources/gates.js");
+        //Path newpath = Paths.get("gates.js");
+        //File newfile= new File("gates.js");
+       // Path newpath=Paths.get("gates.js");
+      System.out.println(newpath);// to test
+       //ReadFileScanerLinter(Path newpath);
     }
 
+    public static String ReadFileScanerLinter(Path newpath) {
+        String testM = "";
+       //newfile= new File("gates.js");
+        //BufferedReader newR = null;
+        try {
+            // Scanner newScan =new Scanner(newfile);
+            List<String> fileLinesArray = Files.readAllLines(newpath);
+            int indexi = 0;
+            for (String i : fileLinesArray) {
+                if
+                    (fileLinesArray.get(indexi).endsWith(";") && fileLinesArray.get(indexi).isEmpty() && fileLinesArray.get(indexi).endsWith("}") && fileLinesArray.get(indexi).endsWith("{") && fileLinesArray.get(indexi).contains("if") && fileLinesArray.get(indexi).contains("else")){
+
+                }else {
+                    testM=testM+"line"+" "+(indexi+1)+" you are missing semicolon";
+                }
+                indexi++;
+            }
+        }
+catch (IOException exception) {
+           // e.printStackTrace();
+            System.out.println("An error occured while rading from file");
+        }return testM;
+    }
 }
+
