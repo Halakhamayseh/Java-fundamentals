@@ -5,3 +5,4 @@ This lab contains the following methods:
 
 2. `Tallying Election`:  function called tally that accepts a List of Strings representing votes and returns one string to show what got the most votes.
 3. `JavaScript Linter`: Write a method that reads a JavaScript file with a given Path, and generates an error message whenever it finds a line that doesn’t end in a semi-colon
+### Amount of time that was spent on this assignment: tow days and i didnot make function 2 yet.
