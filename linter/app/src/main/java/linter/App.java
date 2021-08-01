@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.List;
 import java.util.Scanner;
 
@@ -19,36 +20,44 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-      Path newpath = Paths.get("app/src/main/resources/gates.js");
+        Path newpath = Paths.get("app/src/main/resources/gates.js");
         //Path newpath = Paths.get("gates.js");
         //File newfile= new File("gates.js");
-       // Path newpath=Paths.get("gates.js");
-      System.out.println(newpath);// to test
-       //ReadFileScanerLinter(Path newpath);
+        // Path newpath=Paths.get("gates.js");
+        System.out.println(ReadFileScanerLinter(newpath));// to test
+        //ReadFileScanerLinter(Path newpath);
     }
 
     public static String ReadFileScanerLinter(Path newpath) {
-        String testM = "";
-       //newfile= new File("gates.js");
+        String textMissing = "";
+        String textNotMissing = "";
+        //newfile= new File("gates.js");
         //BufferedReader newR = null;
         try {
             // Scanner newScan =new Scanner(newfile);
             List<String> fileLinesArray = Files.readAllLines(newpath);
             int indexi = 0;
             for (String i : fileLinesArray) {
-                if
-                    (fileLinesArray.get(indexi).endsWith(";") && fileLinesArray.get(indexi).isEmpty() && fileLinesArray.get(indexi).endsWith("}") && fileLinesArray.get(indexi).endsWith("{") && fileLinesArray.get(indexi).contains("if") && fileLinesArray.get(indexi).contains("else")){
 
-                }else {
-                    testM=testM+"line"+" "+(indexi+1)+" you are missing semicolon";
-                }
-                indexi++;
+           // for (int indexi = 0; indexi < fileLinesArray.size(); indexi++) {
+
+                //}
+                if (!i.endsWith(";")) {
+                    if (i.isEmpty() || i.endsWith("}") || i.endsWith("{") || i.contains("if") || i.contains("else")) {
+                        textNotMissing = textNotMissing+" "+"Line "+(indexi+1)+": Not Missing semicolon";
+
+                    } else {
+                        textMissing = textMissing +" "+"Line"+(indexi+1)+": Missing semicolon";
+
+                    }
+
+                }indexi++;
             }
-        }
-catch (IOException exception) {
-           // e.printStackTrace();
+        } catch (IOException exception) {
+            // e.printStackTrace();
             System.out.println("An error occured while rading from file");
-        }return testM;
+        }
+        return textMissing;
     }
 }
 
