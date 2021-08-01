@@ -4,7 +4,8 @@
 package inheritance;
 
 public class Library {
-    public boolean someLibraryMethod() {
-        return true;
-    }
+    //public boolean someLibraryMethod() {
+        //return true;
+   // }
+    
 }
