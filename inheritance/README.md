@@ -24,4 +24,8 @@ Add tests to ensure that when you call addReview, the association is created bet
 
 5. When you associate a review with a restaurant, that restaurant’s star rating should change. Ensure that your addReview method updates the Restaurant star rating appropriately, and add tests. (In particular, ensure that if you’re trying to call addReview when the restaurant and the review are already associated, the star rating of the restaurant does not update.)
 
+### directions on how to test My code
+in LibraryTest.java 
+I made 3 functions with @test and I comparer in each one the output with expected using (assertEquals)
+
 ### Amount of time that was spent on this assignment: 6 Hours
