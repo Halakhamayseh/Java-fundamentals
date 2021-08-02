@@ -26,7 +26,7 @@ class LibraryTest {
         Restaurant newInstanceRestaurant1=new Restaurant("Jood Restaurant",10);
         Review newInstanceReview=new Review("not good","hala",1);
         newInstanceRestaurant1.addReview(newInstanceReview);
-        String resultTest="Restaurant{RestaurantName='Jood Restaurant', starsRate=1, RestaurantPrice=10, reviewsArray=[Review{body='not good', anAuthor='hala', numberOfStars=1}";
+        String resultTest="Restaurant{RestaurantName='Jood Restaurant', starsRate=1, RestaurantPrice=10, reviewsArray=[Review{body='not good', anAuthor='hala', numberOfStars=1}]}";
         assertEquals(resultTest,newInstanceRestaurant1.toString());
     }
 }
