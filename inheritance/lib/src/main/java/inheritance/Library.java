@@ -18,7 +18,7 @@ public class Library {
         newInstanceRestaurant1.addReview(newInstanceReview);
         newInstanceRestaurant1.addReview(newInstanceReview2);
       System.out.println(newInstanceRestaurant1.toString());
-
+Shop newShope=new Shop("Ahmad Market","good Market",5);
 
     }
 }
