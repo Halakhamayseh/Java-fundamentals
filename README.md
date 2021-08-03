@@ -58,4 +58,16 @@ Update your toString and constructor methods appropriately, and also update your
 Add tests to ensure that when you call addReview, the association is created between the Restaurant and the Review.
 
 5. When you associate a review with a restaurant, that restaurant’s star rating should change. Ensure that your addReview method updates the Restaurant star rating appropriately, and add tests. (In particular, ensure that if you’re trying to call addReview when the restaurant and the review are already associated, the star rating of the restaurant does not update.)
+### lab07 Composition and Inheritance, Part 2
+##### This lab contains the following Tasks:
+1. The users want shops! Create a Shop class; a Shop should have a name, description, and number of dollar signs.
+
+2. The users also want to review shops!
+It would be great if a Review could be about either a Shop or a Restaurant. 
+3. The users want theaters! Create a Theater class; a Theater should have a name and all of the movies currently showing there. (Strings are fine for the movies; no need to create another class.)
+
+4. Users are frustrated: they like having a body, an author, and a number of stars, but when they’re reviewing a Theater, they also want to specify which movie they saw.
+Some reviews should now have a String movie instance variable, to hold which movie that reviewer is referencing.
+
+5. Add testing for any new functionality you’ve created.
 Author: Hala Khamayseh

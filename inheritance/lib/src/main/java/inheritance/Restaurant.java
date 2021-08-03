@@ -5,50 +5,61 @@ import java.util.List;
 
 public class Restaurant {
     //have a name, a number of stars betweeen 0 and 5, and a price category
-    public String RestaurantName;
+    public String Name;
     public int starsRate;
-    public int RestaurantPrice ;
-    private List <Review> reviewsArray;
+    public int Price ;
+    private ArrayList <Review> reviewsArray=new ArrayList<Review>();
 
-    public List<Review> getReviewsArray() {
+    public ArrayList<Review> getReviewsArray() {
         return reviewsArray;
     }
 
-    public void setReviewsArray(List<Review> reviewsArray) {
+    public void setReviewsArray(ArrayList<Review> reviewsArray) {
         this.reviewsArray = reviewsArray;
     }
 
     //Implement a Restaurant constructor
+    public Restaurant(String Name) {
+        this.reviewsArray=new ArrayList<Review>();
+
+    }
     public Restaurant(String RestaurantName,int RestaurantPrice){
-        this.RestaurantName=RestaurantName;
+        this.Name=RestaurantName;
        // this.starsRate=starsRate;
-        this.RestaurantPrice=RestaurantPrice;
+        this.Price=RestaurantPrice;
         this.reviewsArray=new ArrayList<Review>();
 
     }
     public void addReview(Review oneRrview){
-        reviewsArray.add(oneRrview);
-        int sum=0;
-        for (Review i:reviewsArray){
+        //Review newInstanceReview=new Review(oneRrview.body, oneRrview.anAuthor,oneRrview.starsRate);
+        if(starsRate<=5){
+            reviewsArray.add(oneRrview);
+            int sum=0;
+            for (Review i:reviewsArray){
 
-            //int avgStars=0;
-            sum+=(i.starsRate);
+                //int avgStars=0;
+                sum+=(i.numberOfStars);
+            }
+
+            //System.out.println(starsRate);
+            starsRate= sum/reviewsArray.size();
+            //System.out.println(starsRate);
+
+        }else {
+            String rateofstarhigherthan5="you should choose between1-5";
+            System.out.println(rateofstarhigherthan5);
         }
-
-        //System.out.println(starsRate);
-        starsRate= sum/reviewsArray.size();
-        //System.out.println(starsRate);
-
     }
+
     // function Tostring
 
 
     @Override
     public String toString() {
         return "Restaurant{" +
-                "RestaurantName='" + RestaurantName + '\'' +
+                "RestaurantName='" + Name + '\'' +
                 ", starsRate=" + starsRate +
-                ", RestaurantPrice=" + RestaurantPrice +
+                ", RestaurantPrice=" + Price+"$" +
                 ", reviewsArray=" + reviewsArray +
                 '}';
     }
