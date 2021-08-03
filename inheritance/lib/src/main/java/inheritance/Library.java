@@ -10,15 +10,31 @@ public class Library {
     public static void main(String[] args) {
         Restaurant newInstanceRestaurant1=new Restaurant("Jood Restaurant",10);
         Restaurant newInstanceRestaurant2=new Restaurant("hala Restaurant",50);
-        //System.out.println(newInstanceRestaurant1);
+       //System.out.println(newInstanceRestaurant1);
         ///
      Review newInstanceReview=new Review("not good","hala",1);
-        Review newInstanceReview2=new Review(" good","sara",3);
+        Review newInstanceReview2=new Review(" good","sara",5);
+
 
         newInstanceRestaurant1.addReview(newInstanceReview);
         newInstanceRestaurant1.addReview(newInstanceReview2);
       System.out.println(newInstanceRestaurant1.toString());
-Shop newShope=new Shop("Ahmad Market","good Market",5);
-
+Shop newShope=new Shop("Ahmad Market",5,"notGood");
+newShope.addReview(newInstanceReview2);
+        newShope.addReview(newInstanceReview);
+        System.out.println(newShope.toString());
+        Theater newthe=new Theater("hala Theater");
+        Review movieReview2=new Review(" good","Rhamha",3,"harry2");
+       // Review movieReview3=new Review(" good","sawsan",3,"Finaaly");
+        newthe.addMovie("harry movie");
+        newthe.addMovie("harrytow movie");
+        //System.out.println(newthe.toString());
+        newthe.removeMovie("harrytow movie");
+        //System.out.println(newthe.toString());
+        newthe.addReview(newInstanceReview2);
+        newthe.addReview(newInstanceReview);
+        newthe.addReviewtow(movieReview2);
+        //newthe.addReviewtow(movieReview3);
+        System.out.println(newthe.toString());
     }
 }

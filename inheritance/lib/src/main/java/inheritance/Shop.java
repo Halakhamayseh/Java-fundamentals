@@ -1,27 +1,51 @@
 package inheritance;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Shop extends Restaurant {
-    //should have a name, description, and number of dollar signs.
-    public String nameShope;
-    public String descriptionShope;
-    public int numberOfDollarSigns;
+    private ArrayList<Review> reviewsArray=new ArrayList<Review>();;
 
-    public List<Review> getReviewsArray() {
+    @Override
+    public ArrayList<Review> getReviewsArray() {
         return reviewsArray;
     }
 
-    public void setReviewsArray(List<Review> reviewsArray) {
+    @Override
+    public void setReviewsArray(ArrayList<Review> reviewsArray) {
         this.reviewsArray = reviewsArray;
     }
 
-    private List<Review> reviewsArray;
+    public String descriptionShope;
+    public Shop(String Name) {
+        super(Name);
+        this.reviewsArray=new ArrayList<Review>();
 
-    public Shop(String nameShope, String descriptionShope, int numberOfDollarSigns) {
-        super("jood",5);
-        this.nameShope = nameShope;
-        this.descriptionShope = descriptionShope;
-        this.numberOfDollarSigns = numberOfDollarSigns;
+    }
+    public Shop(String Name, int Price, String descriptionShope) {
+      super(Name,Price);
+       this.descriptionShope = descriptionShope;
+       this.reviewsArray=new ArrayList<Review>();
+
+    }
+
+    @Override
+    public void addReview(Review oneRrview) {
+        super.addReview(oneRrview);
+        //Review newInstanceReview=new Review(oneRrview.body, oneRrview.anAuthor,oneRrview.starsRate);
+
+
+        reviewsArray.add(oneRrview);
+    }
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "ShopName='" + Name + '\'' +
+                ", starsRate=" + starsRate +
+                ", ShopPrice =" + Price+"$"+
+                ", descriptionShope='" + descriptionShope + '\'' +
+                ", reviewsArray=" + reviewsArray +
+                '}';
     }
 }
